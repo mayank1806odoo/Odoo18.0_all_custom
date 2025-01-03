@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_bag_charges.PosBagPopup">
+        <Dialog size="'md'">
+            <div class="popup popup-selection">
+                <t t-set-slot="header">
+                    <h4 class="modal-title text-break">
+                        List Of Bag Charges
+                    </h4>
+                </t>
+                <div class="modal-body">
+                    <div class="product-list-container flex-grow-1 overflow-y-auto" style="height: 400px;">
+                        <div class="product-list d-grid gap-1 p-1">
+                            <article class='flex-column product position-relative btn btn-light d-flex align-items-stretch p-0 m-0 text-start cursor-pointer overflow-hidden transition-base' t-foreach="bags || []" t-as="item" 
+                                    t-key ="item.id" t-att-data-product-id="item.id" t-on-click="click_on_bag_product">
+                                <div class="product-img rounded-top rounded-3" style="width: 100%;height: 100%;">
+                                    <img class="w-100 bg-100" t-att-src="item.bag_image_url" alt="Product image"/>
+                                </div>
+                                <div class="product-content d-flex flex-column justify-content-between h-10 mx-2 py-1">
+                                    <span class="price-tag text-primary py-1 fw-bolder">
+                                        <t t-esc="env.utils.formatCurrency(item.lst_price,'Product Price')"/>
+                                    </span>
+                                    <div class="overflow-hidden lh-sm fw-bolder product-name">
+                                        <t t-esc="item.display_name"/>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Dialog>
+    </t>
+
+</templates>

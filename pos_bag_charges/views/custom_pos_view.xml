@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="custom_pos_bag_charges">
+			<field name="name">res.config.setting.form.extended.view</field>
+			<field name="model">res.config.settings</field>
+			<field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//block[@id='pos_interface_section']" position="before">
+					<h2 name="pos_interface">POS Bag Charges</h2>
+					<div class="row mt16 o_settings_container" id="service_charge_section">
+						<div class="col-12 col-lg-6 o_setting_box" id="default_sales_tax_setting">
+							<div class="o_setting_left_pane">
+								<field name="allow_bag_charges"/>
+							</div>
+							<div class="o_setting_right_pane">
+								<div>
+									<div class="text-muted">
+	                                    Allow Bag Charges
+									</div>
+								</div>
+							</div>
+							<div class="o_setting_right_pane" invisible="not allow_bag_charges">
+								<div>
+									<label for="pos_bag_category_id"/>
+									<div class="content-group mt16">
+										<field name="pos_bag_category_id" colspan="4" nolabel="1"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

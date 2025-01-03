@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_bag_charges.PosBagButton" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='props.showRemainingButtons']/div/OrderlineNoteButton" position="after">
+            <button t-if="this.pos.config.allow_bag_charges" t-att-class="buttonClass" t-on-click="() => this.pos.onclick_bag()">
+                <i class="fa fa-shopping-bag me-2"></i>
+                <span>Bag</span>
+            </button>
+        </xpath>
+    </t>
+</templates>
